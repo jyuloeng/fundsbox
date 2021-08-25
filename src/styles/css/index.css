@@ -1,4 +1,5 @@
 @import url("./ress.css");
+@import url("./iconfont.css");
 
 :root {
   font-family: "Noto Sans", "Noto Sans SC", system-ui, -apple-system,
@@ -7,4 +8,10 @@
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root,
+body,
+#root {
+  min-height: 100vh;
 }
