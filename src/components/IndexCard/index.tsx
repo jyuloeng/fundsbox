@@ -74,10 +74,12 @@ export default IndexCard;
 
 const PercentChange = styled(InfoText)`
   font-weight: 500;
+  color: inherit;
   ${transitionStyles}
 `;
 
 const IndexChange = styled(CaptionText)`
+  color: inherit;
   ${transitionStyles}
 `;
 

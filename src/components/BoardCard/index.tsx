@@ -60,6 +60,7 @@ export default BoardCard;
 
 const AmountChange = styled(MediumText)`
   font-weight: 600;
+  color: inherit;
   ${transitionStyles}
 `;
 
@@ -77,6 +78,7 @@ const Title = styled(CaptionText)`
 
 const PercentChange = styled(HeadingText)`
   margin-bottom: 12px;
+  color: inherit;
   ${transitionStyles}
 `;
 
