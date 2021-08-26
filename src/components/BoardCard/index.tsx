@@ -86,5 +86,12 @@ const Container = styled.div<Partial<Props>>`
   width: 244px;
   padding: 12px;
   color: ${(props) => (props.type === "rise" ? dangerColor : successColor)};
+  border-radius: 6px;
+  cursor: pointer;
   ${transitionStyles}
+
+  &:hover {
+    transform: scale(1.06);
+    box-shadow: ${(props) => props.theme.colors.cardShadow};
+  }
 `;
