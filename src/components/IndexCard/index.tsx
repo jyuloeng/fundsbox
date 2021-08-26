@@ -3,6 +3,16 @@ import styled from "@emotion/styled/macro";
 import Space from "../Space";
 import Icon from "../Icon";
 
+import { useTheme } from "../../context/ThemeContext";
+
+import {
+  CaptionText,
+  InfoText,
+  IntroText,
+  SmallText,
+} from "../../styles/typography";
+import { transitionStyles } from "../../styles/common";
+
 type Props = {
   type?: "rise" | "fell";
   logo: string;
@@ -24,8 +34,10 @@ const IndexCard: React.FC<Props> = ({
   percentChange,
   lastUpdatedTime,
 }) => {
+  const { themeType } = useTheme();
+
   return (
-    <Container direction="column" gap={24}>
+    <Container direction="column" gap={24} themeType={themeType}>
       <Header align="center" gap="large">
         <Logo>{logo}</Logo>
 
@@ -37,7 +49,9 @@ const IndexCard: React.FC<Props> = ({
 
       <Footer justify="space-between">
         <Space direction="column">
-          <CurrentIndex type={type}>{currentIndex.toFixed(2)}</CurrentIndex>
+          <CurrentIndex type={type} bold>
+            {currentIndex.toFixed(2)}
+          </CurrentIndex>
           <LastUpdatedTime>数据更新于：2021/8/24 11:30</LastUpdatedTime>
         </Space>
 
@@ -46,7 +60,7 @@ const IndexCard: React.FC<Props> = ({
             <Icon name="round-arrow" />
           </IconChange>
           <Space direction="column" align="center">
-            <IndexChange>{indexChange.toFixed(2)}</IndexChange>
+            <IndexChange bold>{indexChange.toFixed(2)}</IndexChange>
             <PercentChange>{percentChange.toFixed(2)}%</PercentChange>
           </Space>
         </Change>
@@ -57,22 +71,17 @@ const IndexCard: React.FC<Props> = ({
 
 export default IndexCard;
 
-const PercentChange = styled.span`
-  font-size: 14px;
-  line-height: 22px;
+const PercentChange = styled(InfoText)`
   font-weight: 500;
-  transition: all 0.3s;
+  ${transitionStyles}
 `;
 
-const IndexChange = styled.span`
-  font-size: 20px;
-  line-height: 28px;
-  font-weight: 600;
-  transition: all 0.3s;
+const IndexChange = styled(CaptionText)`
+  ${transitionStyles}
 `;
 
 const IconChange = styled.div<Partial<Props>>`
-  transition: all 0.3s;
+  ${transitionStyles}
   transform: ${(props) => props.type === "fell" && "rotate(180deg)"};
 `;
 
@@ -80,31 +89,24 @@ const Change = styled(Space)<Partial<Props>>`
   color: ${(props) => (props.type === "rise" ? "#ff6f6f" : "#5AD380")};
 `;
 
-const LastUpdatedTime = styled.span`
-  font-size: 10px;
-  line-height: 18px;
-  color: rgba(77, 83, 85, 0.5);
+const LastUpdatedTime = styled(SmallText)`
+  color: ${(props) => props.theme.colors.text2};
+  opacity: 0.5;
 `;
 
-const CurrentIndex = styled.span<Partial<Props>>`
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 32px;
+const CurrentIndex = styled(IntroText)<Partial<Props>>`
   color: ${(props) => (props.type === "rise" ? "#ff6f6f" : "#5AD380")};
-  transition: all 0.3s;
+  ${transitionStyles}
 `;
 
-const Code = styled.span`
-  font-size: 14px;
-  line-height: 22px;
-  color: rgba(77, 83, 85, 0.6);
+const Code = styled(InfoText)`
+  color: ${(props) => props.theme.colors.text2};
+  opacity: 0.6;
 `;
 
-const Title = styled.span`
-  font-size: 20px;
+const Title = styled(CaptionText)`
   font-weight: 500;
-  line-height: 28px;
-  color: #2d3436;
+  color: ${(props) => props.theme.colors.text};
 `;
 
 const Logo = styled.div`
@@ -113,7 +115,7 @@ const Logo = styled.div`
   font-size: 24px;
   line-height: 48px;
   text-align: center;
-  background-color: #f4f5f7;
+  background-color: ${(props) => props.theme.colors.background};
   border-radius: 50%;
 `;
 
@@ -125,13 +127,15 @@ const Header = styled(Space)`
   width: 100%;
 `;
 
-const Container = styled(Space)`
+const Container = styled(Space)<{ themeType: Theme.ThemeType }>`
   width: 296px;
   padding: 16px;
-  box-shadow: 0px 8px 16px -6px rgba(77, 83, 85, 0.1);
-  border-radius: 8px;
+  background-color: ${(props) =>
+    props.themeType === "light" ? "#ffffff" : props.theme.colors.background2};
+  box-shadow: ${(props) => props.theme.colors.cardShadow};
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s;
+  ${transitionStyles}
 
   &:hover {
     transform: translateY(-8px);

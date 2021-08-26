@@ -4,6 +4,7 @@ import Space from "./components/Space";
 import IndexCard from "./components/IndexCard";
 
 import { GetComponentProps } from "./utils";
+import { useTheme } from "./context/ThemeContext";
 
 const indexList: GetComponentProps<typeof IndexCard>[] = [
   {
@@ -41,6 +42,8 @@ const getRandomNumber = () => {
 };
 
 function App() {
+  const { themeType, setThemeType } = useTheme();
+
   const [list, setList] = useState(indexList);
 
   useEffect(() => {
@@ -70,8 +73,21 @@ function App() {
     };
   }, []);
 
+  const handleToggleTheme = () => {
+    if (themeType === "light") {
+      setThemeType("dark");
+    } else {
+      setThemeType("light");
+    }
+  };
+
   return (
     <Container>
+      <Space gap={24}>
+        <Button onClick={handleToggleTheme}>切换主题</Button>
+        当前主题:{themeType}
+      </Space>
+
       <Space gap={24}>
         {list.map((prop) => (
           <IndexCard key={prop.code} {...prop} />
@@ -83,8 +99,11 @@ function App() {
 
 export default App;
 
+const Button = styled.button``;
+
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;

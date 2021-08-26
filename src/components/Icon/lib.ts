@@ -1,19 +1,4 @@
-export type IconName =
-  | "search"
-  | "more"
-  | "move"
-  | "mail"
-  | "briefcase"
-  | "round-arrow"
-  | "contact-card"
-  | "uploadfile"
-  | "star"
-  | "eye"
-  | "location"
-  | "uploadfile-success"
-  | "graduate";
-
-const iconUnicode: { [key in IconName]: string } = {
+const iconUnicode: { [key in Icon.Name]: string } = {
   search: "&#xe601;",
   more: "&#xe602;",
   move: "&#xe603;",
@@ -29,7 +14,7 @@ const iconUnicode: { [key in IconName]: string } = {
   graduate: "&#xe60d;",
 };
 
-export const getIconUnicodeByName = (name: IconName) => {
+export const getIconUnicodeByName = (name: Icon.Name) => {
   if (!iconUnicode[name]) {
     throw new Error("😈 请输入正确的图标名哦亲");
   }

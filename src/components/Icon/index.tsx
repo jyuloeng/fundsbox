@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import { IconName, getIconUnicodeByName } from "./lib";
+import { getIconUnicodeByName } from "./lib";
 
 type Props = {
-  name: IconName;
+  name: Icon.Name;
   size?: number;
 };
 
