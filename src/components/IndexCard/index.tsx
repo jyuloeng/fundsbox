@@ -12,6 +12,7 @@ import {
   SmallText,
 } from "../../styles/typography";
 import { transitionStyles } from "../../styles/common";
+import { dangerColor, darkTextColor, successColor } from "../../styles/colors";
 
 type Props = {
   type?: "rise" | "fell";
@@ -86,7 +87,7 @@ const IconChange = styled.div<Partial<Props>>`
 `;
 
 const Change = styled(Space)<Partial<Props>>`
-  color: ${(props) => (props.type === "rise" ? "#ff6f6f" : "#5AD380")};
+  color: ${(props) => (props.type === "rise" ? dangerColor : successColor)};
 `;
 
 const LastUpdatedTime = styled(SmallText)`
@@ -95,7 +96,7 @@ const LastUpdatedTime = styled(SmallText)`
 `;
 
 const CurrentIndex = styled(IntroText)<Partial<Props>>`
-  color: ${(props) => (props.type === "rise" ? "#ff6f6f" : "#5AD380")};
+  color: ${(props) => (props.type === "rise" ? dangerColor : successColor)};
   ${transitionStyles}
 `;
 
@@ -131,7 +132,9 @@ const Container = styled(Space)<{ themeType: Theme.ThemeType }>`
   width: 296px;
   padding: 16px;
   background-color: ${(props) =>
-    props.themeType === "light" ? "#ffffff" : props.theme.colors.background2};
+    props.themeType === "light"
+      ? darkTextColor
+      : props.theme.colors.background2};
   box-shadow: ${(props) => props.theme.colors.cardShadow};
   border-radius: 6px;
   cursor: pointer;

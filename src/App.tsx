@@ -106,5 +106,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 48px;
   min-height: 100vh;
+  background-color: ${(props) => props.theme.colors.background2};
 `;
