@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import styled from "@emotion/styled/macro";
 import Space from "./components/Space";
 import IndexCard from "./components/IndexCard";
+import BoardCard from "./components/BoardCard";
+
+import { useTheme } from "./context/ThemeContext";
 
 import { GetComponentProps } from "./utils";
-import { useTheme } from "./context/ThemeContext";
 
 const indexList: GetComponentProps<typeof IndexCard>[] = [
   {
@@ -34,6 +36,56 @@ const indexList: GetComponentProps<typeof IndexCard>[] = [
     indexChange: 48.61,
     percentChange: 1.48,
     lastUpdatedTime: Date.now(),
+  },
+];
+
+const boradList: GetComponentProps<typeof BoardCard>[] = [
+  {
+    title: "酿酒行业",
+    amountChange: "2463000000",
+    percentChange: 5.9,
+  },
+  {
+    title: "有色金属",
+    amountChange: "2229000000",
+    percentChange: 2.32,
+  },
+  {
+    title: "材料行业",
+    amountChange: "2041000000",
+    percentChange: 2.71,
+  },
+  {
+    title: "券商信托",
+    amountChange: "1855000000",
+    percentChange: 3.08,
+  },
+];
+
+const boradList2: GetComponentProps<typeof BoardCard>[] = [
+  {
+    type: "fell",
+    title: "机械行业",
+    amountChange: "5874000000",
+    percentChange: 6.81,
+  },
+  {
+    type: "fell",
+    title: "电子元件",
+    amountChange: "3790000000",
+    percentChange: 2.63,
+  },
+  {
+    type: "fell",
+    title: "化工行业",
+    amountChange: "2255000000",
+    percentChange: 2.07,
+  },
+  {
+    type: "fell",
+    title: "输配电气",
+    amountChange: "195000000",
+    percentChange: 3.28,
   },
 ];
 
@@ -91,6 +143,18 @@ function App() {
       <Space gap={24}>
         {list.map((prop) => (
           <IndexCard key={prop.code} {...prop} />
+        ))}
+      </Space>
+
+      <Space gap={24}>
+        {boradList.map((prop) => (
+          <BoardCard key={prop.title} {...prop} />
+        ))}
+      </Space>
+
+      <Space gap={24}>
+        {boradList2.map((prop) => (
+          <BoardCard key={prop.title} {...prop} />
         ))}
       </Space>
     </Container>
