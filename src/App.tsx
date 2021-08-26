@@ -3,11 +3,12 @@ import styled from "@emotion/styled/macro";
 import Space from "./components/Space";
 import IndexCard from "./components/IndexCard";
 import BoardCard from "./components/BoardCard";
+import TradingTotal from "./components/TradingTotal";
+import Indicator from "./components/Indicator";
 
 import { useTheme } from "./context/ThemeContext";
 
 import { GetComponentProps } from "./utils";
-import TradingTotal from "./components/TradingTotal";
 
 const indexList: GetComponentProps<typeof IndexCard>[] = [
   {
@@ -134,6 +135,12 @@ function App() {
     }
   };
 
+  const [indicatorIndex, setIndicatorIndex] = useState(0);
+
+  const handleIndicatorClick = (index: number) => {
+    setIndicatorIndex(index);
+  };
+
   return (
     <Container>
       <Space gap={24}>
@@ -153,6 +160,12 @@ function App() {
           <IndexCard key={prop.code} {...prop} />
         ))}
       </Space>
+
+      <Indicator
+        activeIndex={indicatorIndex}
+        total={3}
+        onDotClick={handleIndicatorClick}
+      />
 
       <Space gap={24}>
         {boradList.map((prop) => (
