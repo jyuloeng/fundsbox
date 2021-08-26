@@ -7,6 +7,7 @@ import BoardCard from "./components/BoardCard";
 import { useTheme } from "./context/ThemeContext";
 
 import { GetComponentProps } from "./utils";
+import TradingTotal from "./components/TradingTotal";
 
 const indexList: GetComponentProps<typeof IndexCard>[] = [
   {
@@ -139,6 +140,13 @@ function App() {
         <Button onClick={handleToggleTheme}>切换主题</Button>
         当前主题:{themeType}
       </Space>
+
+      <TradingTotal
+        amountTotal="1408319000000"
+        riseTotal={2432}
+        unchangeTotal={203}
+        fellTotal={1903}
+      />
 
       <Space gap={24}>
         {list.map((prop) => (
