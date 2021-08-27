@@ -5,7 +5,6 @@ import IndexCard from "../../components/IndexCard";
 import BoardCard from "../../components/BoardCard";
 import TradingTotal from "../../components/TradingTotal";
 import Indicator from "../../components/Indicator";
-import NavTabs, { NavTab } from "../../components/NavTabs";
 
 import { useTheme } from "../../context/ThemeContext";
 
@@ -92,21 +91,6 @@ const boradList2: GetComponentProps<typeof BoardCard>[] = [
   },
 ];
 
-const navList: GetComponentProps<typeof NavTab>[] = [
-  {
-    tabKey: "home",
-    title: "首页",
-  },
-  {
-    tabKey: "optional",
-    title: "自选",
-  },
-  {
-    tabKey: "boards",
-    title: "行情",
-  },
-];
-
 const getRandomNumber = () => {
   return Math.random() * 2 - 1;
 };
@@ -157,21 +141,12 @@ function App() {
     setIndicatorIndex(index);
   };
 
-  const [navtabsActiveKey, setNavtabsActiveKey] = useState(navList[0].tabKey);
-
   return (
     <Container>
       <Space gap={24}>
         <Button onClick={handleToggleTheme}>切换主题</Button>
         当前主题:{themeType}
       </Space>
-
-      <NavTabs
-        key="home"
-        tabs={navList}
-        activeKey={navtabsActiveKey}
-        onTabClick={setNavtabsActiveKey}
-      />
 
       <TradingTotal
         amountTotal="1408319000000"
@@ -218,5 +193,4 @@ const Container = styled.div`
   align-items: center;
   gap: 48px;
   min-height: 100vh;
-  background-color: ${(props) => props.theme.colors.background2};
 `;
