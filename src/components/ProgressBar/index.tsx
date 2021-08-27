@@ -21,11 +21,13 @@ export default ProgressBar;
 
 const Progress = styled.div<Props>`
   position: absolute;
-  width: ${(props) => `${props.percent * 10}%`};
+  width: 100%;
   height: var(--progress-hegiht);
   border-radius: calc(var(--progress-hegiht) / 2);
   background-color: ${(props) =>
     props.strokeColor ? props.strokeColor : props.theme.colors.primary};
+  transform: ${(props) => `translateX(${props.percent * 10 - 100}%)`};
+  will-change: transform;
   ${transitionStyles}
 `;
 
@@ -38,5 +40,6 @@ const Container = styled.div<Partial<Props>>`
   border-radius: calc(var(--progress-hegiht) / 2);
   background-color: ${(props) =>
     props.trailColor ? props.trailColor : props.theme.colors.background};
+  overflow: hidden;
   ${transitionStyles}
 `;
