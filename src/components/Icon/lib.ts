@@ -12,6 +12,9 @@ const iconUnicode: { [key in Icon.Name]: string } = {
   location: "&#xe60b;",
   "uploadfile-success": "&#xe60c;",
   graduate: "&#xe60d;",
+  wechat: "&#xe620;",
+  github: "&#xe60e;",
+  arrow: "&#xe60f;",
 };
 
 export const getIconUnicodeByName = (name: Icon.Name) => {

@@ -12,5 +12,8 @@ declare namespace Icon {
     | "eye"
     | "location"
     | "uploadfile-success"
-    | "graduate";
+    | "graduate"
+    | "wechat"
+    | "github"
+    | "arrow";
 }
