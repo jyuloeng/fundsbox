@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import Space from "../Space";
-import ProgressBar from "../ProgressBar";
+import Space from "components/Space";
+import ProgressBar from "components/ProgressBar";
 
-import { CaptionText, HeadingText, MediumText } from "../../styles/typography";
-import { dangerColor, successColor } from "../../styles/colors";
-import { transitionStyles } from "../../styles/common";
+import { CaptionText, HeadingText, MediumText } from "styles/typography";
+import { dangerColor, successColor } from "styles/colors";
+import { transitionStyles } from "styles/common";
 
-import { formatAmount } from "../../utils/format";
+import { formatAmount } from "utils/format";
 
 type Props = {
   type?: "rise" | "fell";

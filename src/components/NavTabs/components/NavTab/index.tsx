@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
 
-import { CaptionText } from "../../../../styles/typography";
-import { transitionStyles } from "../../../../styles/common";
+import { CaptionText } from "styles/typography";
+import { transitionStyles } from "styles/common";
 
 type Props = {
   tabKey: string;

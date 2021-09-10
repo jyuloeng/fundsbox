@@ -4,7 +4,7 @@ import { Outlet } from "react-router";
 import Header from "./Header";
 import Footer from "./Footer";
 
-import { containerStyles } from "../styles/common";
+import { containerStyles } from "styles/common";
 
 const Layout: React.FC = () => {
   return (

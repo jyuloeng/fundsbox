@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import { HeadingText } from "../../styles/typography";
+import { HeadingText } from "styles/typography";
 
 const NotFoundPage: React.FC = () => {
   return (

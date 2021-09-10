@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
 
-import { transitionStyles } from "../../styles/common";
+import { transitionStyles } from "styles/common";
 
 type Props = {
   percent: number;
