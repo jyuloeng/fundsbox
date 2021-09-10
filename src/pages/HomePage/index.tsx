@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import styled from "@emotion/styled/macro";
-import Space from "components/Space";
-import IndexCard from "components/IndexCard";
-import BoardCard from "components/BoardCard";
-import TradingTotal from "components/TradingTotal";
-import Indicator from "components/Indicator";
+import Space from "@components/Space";
+import IndexCard from "@components/IndexCard";
+import BoardCard from "@components/BoardCard";
+import TradingTotal from "@components/TradingTotal";
+import Indicator from "@components/Indicator";
 
-import { useTheme } from "context/ThemeContext";
+import { useTheme } from "@context/ThemeContext";
 
-import { GetComponentProps } from "utils";
+import { GetComponentProps } from "@utils/index";
 
 const indexList: GetComponentProps<typeof IndexCard>[] = [
   {

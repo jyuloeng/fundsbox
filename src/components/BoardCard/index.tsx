@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import Space from "components/Space";
-import ProgressBar from "components/ProgressBar";
+import Space from "@components/Space";
+import ProgressBar from "@components/ProgressBar";
 
-import { CaptionText, HeadingText, MediumText } from "styles/typography";
-import { dangerColor, successColor } from "styles/colors";
-import { transitionStyles } from "styles/common";
+import { CaptionText, HeadingText, MediumText } from "@styles/typography";
+import { dangerColor, successColor } from "@styles/colors";
+import { transitionStyles } from "@styles/common";
 
-import { formatAmount } from "utils/format";
+import { formatAmount } from "@utils/format";
 
 type Props = {
   type?: "rise" | "fell";
@@ -43,7 +43,7 @@ const BoardCard: React.FC<Props> = ({
     <Container type={type}>
       <PercentChange bold>{renderPercent()}</PercentChange>
       <Space direction="column" gap="small">
-        <Title>{title}</Title>
+        <Title medium>{title}</Title>
 
         <Space style={{ marginBottom: 16 }}>
           <Caption>{renderCaption()}</Caption>
@@ -65,14 +65,13 @@ const AmountChange = styled(MediumText)`
 `;
 
 const Caption = styled(MediumText)`
-  color: ${(props) => props.theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
   opacity: 0.6;
   ${transitionStyles}
 `;
 
 const Title = styled(CaptionText)`
-  font-weight: 500;
-  color: ${(props) => props.theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
   ${transitionStyles}
 `;
 
@@ -85,13 +84,13 @@ const PercentChange = styled(HeadingText)`
 const Container = styled.div<Partial<Props>>`
   width: 244px;
   padding: 12px;
-  color: ${(props) => (props.type === "rise" ? dangerColor : successColor)};
+  color: ${({ type }) => (type === "rise" ? dangerColor : successColor)};
   border-radius: 6px;
   cursor: pointer;
   ${transitionStyles}
 
   &:hover {
     transform: scale(1.06);
-    box-shadow: ${(props) => props.theme.colors.cardShadow};
+    box-shadow: ${({ theme }) => theme.colors.cardShadow};
   }
 `;

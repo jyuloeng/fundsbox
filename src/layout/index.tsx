@@ -4,7 +4,7 @@ import { Outlet } from "react-router";
 import Header from "./Header";
 import Footer from "./Footer";
 
-import { containerStyles } from "styles/common";
+import { containerStyles } from "@styles/common";
 
 const Layout: React.FC = () => {
   return (
@@ -26,5 +26,5 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   min-height: 100vh;
-  background-color: ${(props) => props.theme.colors.background2};
+  background-color: ${({ theme }) => theme.colors.background2};
 `;

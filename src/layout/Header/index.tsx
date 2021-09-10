@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
 import styled from "@emotion/styled/macro";
-import BrandSvg from "assets/images/Brand.svg";
+import BrandSvg from "@assets/images/Brand.svg";
 import { useNavigate, useLocation } from "react-router";
-import Space from "components/Space";
-import NavTabs, { NavTab } from "components/NavTabs";
+import Space from "@components/Space";
+import NavTabs, { NavTab } from "@components/NavTabs";
 
-import { lightBackgroundColor } from "styles/colors";
+import { lightBackgroundColor } from "@styles/colors";
 
-import { GetComponentProps } from "utils";
+import { GetComponentProps } from "@utils/index";
 
 const nabtabs: GetComponentProps<typeof NavTab>[] = [
   {

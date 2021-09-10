@@ -1,13 +1,13 @@
 import React, { lazy } from "react";
 import { Route, Routes } from "react-router";
 import { HashRouter } from "react-router-dom";
-import Layout from "layout";
-import PageLoading from "components/PageLoading";
+import Layout from "@layout/index";
+import PageLoading from "@components/PageLoading";
 
-const HomePage = lazy(() => import("pages/HomePage"));
-const SelfSelectedPage = lazy(() => import("pages/SelfSelectedPage"));
-const MarketPage = lazy(() => import("pages/MarketPage"));
-const NotFoundPage = lazy(() => import("pages/NotFoundPage"));
+const HomePage = lazy(() => import("@pages/HomePage"));
+const SelfSelectedPage = lazy(() => import("@pages/SelfSelectedPage"));
+const MarketPage = lazy(() => import("@pages/MarketPage"));
+const NotFoundPage = lazy(() => import("@pages/NotFoundPage"));
 
 const RootRouter: React.FC = () => {
   return (

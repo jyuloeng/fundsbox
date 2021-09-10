@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import Space from "components/Space";
-import Icon from "components/Icon";
+import Space from "@components/Space";
+import Icon from "@components/Icon";
 
-import { MediumText } from "styles/typography";
-import { containerStyles } from "styles/common";
+import { MediumText } from "@styles/typography";
+import { containerStyles } from "@styles/common";
 
 const Footer: React.FC = () => {
   return (
@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
 export default Footer;
 
 const Contact = styled(Space)`
-  color: ${(props) => props.theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
   opacity: 0.5;
   cursor: pointer;
 `;
@@ -65,5 +65,5 @@ const Wrapper = styled.footer`
   position: absolute;
   left: 0;
   right: 0;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.background};
 `;

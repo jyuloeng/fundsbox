@@ -1,13 +1,13 @@
 import { useState, useMemo, ReactNode, ReactElement } from "react";
 import { ThemeProvider as EThemeProvider } from "@emotion/react";
 
-import { createSafeContext, useSafeContext } from "hooks/useSafeContext";
+import { createSafeContext, useSafeContext } from "@hooks/useSafeContext";
 
-import { themes } from "styles/theme";
+import { themes } from "@styles/theme";
 
 export type ThemeContextProps = {
-  themeType: Theme.ThemeType;
-  setThemeType: (theme: Theme.ThemeType) => void;
+  themeType: ThemeType;
+  setThemeType: (theme: ThemeType) => void;
 };
 
 const ThemeContext = createSafeContext<ThemeContextProps>();

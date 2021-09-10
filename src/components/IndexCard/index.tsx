@@ -1,18 +1,18 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import Space from "components/Space";
-import Icon from "components/Icon";
+import Space from "@components/Space";
+import Icon from "@components/Icon";
 
-import { useTheme } from "context/ThemeContext";
+import { useTheme } from "@context/ThemeContext";
 
 import {
   CaptionText,
   InfoText,
   IntroText,
   SmallText,
-} from "styles/typography";
-import { transitionStyles } from "styles/common";
-import { dangerColor, darkTextColor, successColor } from "styles/colors";
+} from "@styles/typography";
+import { transitionStyles } from "@styles/common";
+import { dangerColor, darkTextColor, successColor } from "@styles/colors";
 
 type Props = {
   type?: "rise" | "fell";
@@ -43,7 +43,7 @@ const IndexCard: React.FC<Props> = ({
         <Logo>{logo}</Logo>
 
         <Space direction="column">
-          <Title>{title}</Title>
+          <Title medium>{title}</Title>
           <Code>{code}</Code>
         </Space>
       </Header>
@@ -62,7 +62,7 @@ const IndexCard: React.FC<Props> = ({
           </IconChange>
           <Space direction="column" align="center">
             <IndexChange bold>{indexChange.toFixed(2)}</IndexChange>
-            <PercentChange>{percentChange.toFixed(2)}%</PercentChange>
+            <PercentChange medium>{percentChange.toFixed(2)}%</PercentChange>
           </Space>
         </Change>
       </Footer>
@@ -73,7 +73,6 @@ const IndexCard: React.FC<Props> = ({
 export default IndexCard;
 
 const PercentChange = styled(InfoText)`
-  font-weight: 500;
   color: inherit;
   ${transitionStyles}
 `;
@@ -85,31 +84,30 @@ const IndexChange = styled(CaptionText)`
 
 const IconChange = styled.div<Partial<Props>>`
   ${transitionStyles}
-  transform: ${(props) => props.type === "fell" && "rotate(180deg)"};
+  transform: ${({ type }) => type === "fell" && "rotate(180deg)"};
 `;
 
 const Change = styled(Space)<Partial<Props>>`
-  color: ${(props) => (props.type === "rise" ? dangerColor : successColor)};
+  color: ${({ type }) => (type === "rise" ? dangerColor : successColor)};
 `;
 
 const LastUpdatedTime = styled(SmallText)`
-  color: ${(props) => props.theme.colors.text2};
+  color: ${({ theme }) => theme.colors.text2};
   opacity: 0.5;
 `;
 
 const CurrentIndex = styled(IntroText)<Partial<Props>>`
-  color: ${(props) => (props.type === "rise" ? dangerColor : successColor)};
+  color: ${({ type }) => (type === "rise" ? dangerColor : successColor)};
   ${transitionStyles}
 `;
 
 const Code = styled(InfoText)`
-  color: ${(props) => props.theme.colors.text2};
+  color: ${({ theme }) => theme.colors.text2};
   opacity: 0.6;
 `;
 
 const Title = styled(CaptionText)`
-  font-weight: 500;
-  color: ${(props) => props.theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 const Logo = styled.div`
@@ -118,7 +116,7 @@ const Logo = styled.div`
   font-size: 24px;
   line-height: 48px;
   text-align: center;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.background};
   border-radius: 50%;
 `;
 
@@ -130,14 +128,12 @@ const Header = styled(Space)`
   width: 100%;
 `;
 
-const Container = styled(Space)<{ themeType: Theme.ThemeType }>`
+const Container = styled(Space)<{ themeType: ThemeType }>`
   width: 296px;
   padding: 16px;
-  background-color: ${(props) =>
-    props.themeType === "light"
-      ? darkTextColor
-      : props.theme.colors.background2};
-  box-shadow: ${(props) => props.theme.colors.cardShadow};
+  background-color: ${({ theme, themeType }) =>
+    themeType === "light" ? darkTextColor : theme.colors.background2};
+  box-shadow: ${({ theme }) => theme.colors.cardShadow};
   border-radius: 6px;
   cursor: pointer;
   ${transitionStyles}

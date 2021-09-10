@@ -2,11 +2,12 @@ import styled from "@emotion/styled/macro";
 
 export type TypographyProps = {
   bold?: boolean;
+  medium?: boolean;
 };
 
 const BasicText = styled.span<TypographyProps>`
-  font-weight: ${(props) => (props.bold ? "700" : "400")};
-  color: ${(props) => props.theme.colors.text};
+  font-weight: ${({ bold, medium }) => (bold ? "700" : medium ? "500" : "400")};
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const HeadingText = styled(BasicText)`

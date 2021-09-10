@@ -3,7 +3,7 @@ import styled from "@emotion/styled/macro";
 import { getIconUnicodeByName } from "./lib";
 
 type Props = {
-  name: Icon.Name;
+  name: IconName;
   size?: number;
 };
 
@@ -20,7 +20,7 @@ export default Icon;
 
 const Container = styled.i<Partial<Props>>`
   font-family: "iconfont" !important;
-  font-size: ${(props) => `${props.size}px`};
+  font-size: ${({ size }) => `${size}px`};
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;

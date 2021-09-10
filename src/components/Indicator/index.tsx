@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
 
-import { useTheme } from "context/ThemeContext";
+import { useTheme } from "@context/ThemeContext";
 
 import {
   dangerColor,
   darkBackground2Color,
   lightBackground2Color,
-} from "styles/colors";
-import { transitionStyles } from "styles/common";
+} from "@styles/colors";
+import { transitionStyles } from "@styles/common";
 
 type Props = {
   activeIndex: number;
@@ -39,16 +39,16 @@ const Indicator: React.FC<Props> = ({ activeIndex, total, onDotClick }) => {
 
 export default Indicator;
 
-const Dot = styled.div<{ themeType: Theme.ThemeType; active?: boolean }>`
+const Dot = styled.div<{ themeType: ThemeType; active?: boolean }>`
   --indicator-size: 8px;
 
   width: var(--indicator-size);
   height: var(--indicator-size);
   border-radius: calc(var(--indicator-size) / 2);
-  background-color: ${(props) =>
-    props.themeType === "light" ? darkBackground2Color : lightBackground2Color};
-  background-color: ${(props) => props.active && dangerColor};
-  opacity: ${(props) => !props.active && 0.5};
+  background-color: ${({ themeType }) =>
+    themeType === "light" ? darkBackground2Color : lightBackground2Color};
+  background-color: ${({ active }) => active && dangerColor};
+  opacity: ${({ active }) => !active && 0.5};
   cursor: pointer;
   ${transitionStyles}
 `;

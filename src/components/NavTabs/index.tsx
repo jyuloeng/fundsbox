@@ -1,8 +1,8 @@
 import React from "react";
-import Space from "components/Space";
+import Space from "@components/Space";
 import NavTab from "./components/NavTab";
 
-import { GetComponentProps } from "utils";
+import { GetComponentProps } from "@utils/index";
 
 type Props = {
   activeKey: string;

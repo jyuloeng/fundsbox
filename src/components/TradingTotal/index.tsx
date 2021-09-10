@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import Space from "components/Space";
+import Space from "@components/Space";
 
-import { CaptionText, IntroText, MediumText } from "styles/typography";
-import { dangerColor, successColor } from "styles/colors";
-import { transitionStyles } from "styles/common";
+import { CaptionText, IntroText, MediumText } from "@styles/typography";
+import { dangerColor, successColor } from "@styles/colors";
+import { transitionStyles } from "@styles/common";
 
-import { formatAmount } from "utils/format";
+import { formatAmount } from "@utils/format";
 
 type Props = {
   riseTotal: number;
@@ -62,7 +62,7 @@ const FellTotal = styled(CaptionText)`
 `;
 
 const UnChangeTotal = styled(CaptionText)`
-  color: ${(props) => props.theme.colors.text2};
+  color: ${({ theme }) => theme.colors.text2};
   ${transitionStyles}
 `;
 

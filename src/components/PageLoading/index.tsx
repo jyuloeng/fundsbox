@@ -2,9 +2,9 @@ import React from "react";
 import styled from "@emotion/styled/macro";
 import { Player } from "@lottiefiles/react-lottie-player";
 
-import { CaptionText } from "styles/typography";
+import { CaptionText } from "@styles/typography";
 
-import { GetComponentProps } from "utils";
+import { GetComponentProps } from "@utils/index";
 
 const lottiePlayProps: GetComponentProps<Player> = {
   src: "https://assets3.lottiefiles.com/packages/lf20_dFnnfb.json",

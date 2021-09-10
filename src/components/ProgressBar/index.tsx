@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
 
-import { transitionStyles } from "styles/common";
+import { transitionStyles } from "@styles/common";
 
 type Props = {
   percent: number;
@@ -24,8 +24,8 @@ const Progress = styled.div<Props>`
   width: 100%;
   height: var(--progress-hegiht);
   border-radius: calc(var(--progress-hegiht) / 2);
-  background-color: ${(props) =>
-    props.strokeColor ? props.strokeColor : props.theme.colors.primary};
+  background-color: ${({ theme, strokeColor }) =>
+    strokeColor ? strokeColor : theme.colors.primary};
   transform: ${(props) => `translateX(${props.percent * 10 - 100}%)`};
   will-change: transform;
   ${transitionStyles}
@@ -38,8 +38,8 @@ const Container = styled.div<Partial<Props>>`
   width: 100%;
   height: var(--progress-hegiht);
   border-radius: calc(var(--progress-hegiht) / 2);
-  background-color: ${(props) =>
-    props.trailColor ? props.trailColor : props.theme.colors.background};
+  background-color: ${({ theme, trailColor }) =>
+    trailColor ? trailColor : theme.colors.background};
   overflow: hidden;
   ${transitionStyles}
 `;

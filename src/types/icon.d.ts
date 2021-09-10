@@ -1,19 +1,17 @@
-declare namespace Icon {
-  type Name =
-    | "search"
-    | "more"
-    | "move"
-    | "mail"
-    | "briefcase"
-    | "round-arrow"
-    | "contact-card"
-    | "uploadfile"
-    | "star"
-    | "eye"
-    | "location"
-    | "uploadfile-success"
-    | "graduate"
-    | "wechat"
-    | "github"
-    | "arrow";
-}
+declare type IconName =
+  | "search"
+  | "more"
+  | "move"
+  | "mail"
+  | "briefcase"
+  | "round-arrow"
+  | "contact-card"
+  | "uploadfile"
+  | "star"
+  | "eye"
+  | "location"
+  | "uploadfile-success"
+  | "graduate"
+  | "wechat"
+  | "github"
+  | "arrow";

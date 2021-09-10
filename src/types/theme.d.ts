@@ -1,23 +1,21 @@
-declare namespace Theme {
-  type ThemeType = "light" | "dark";
+declare type ThemeType = "light" | "dark";
 
-  type Colors = {
-    text: string;
-    text2: string;
-    primary: string;
-    success: string;
-    warning: string;
-    danger: string;
-    background: string;
-    background2: string;
-    cardShadow: string;
-  };
+declare type ThemeColors = {
+  text: string;
+  text2: string;
+  primary: string;
+  success: string;
+  warning: string;
+  danger: string;
+  background: string;
+  background2: string;
+  cardShadow: string;
+};
 
-  type Theme = {
-    colors: Colors;
-  };
+declare type SystemTheme = {
+  colors: ThemeColors;
+};
 
-  type Themes = {
-    [key in ThemeType]: Theme;
-  };
-}
+declare type SystemThemes = {
+  [key in ThemeType]: SystemTheme;
+};

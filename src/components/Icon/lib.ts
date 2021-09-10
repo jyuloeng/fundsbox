@@ -1,4 +1,4 @@
-const iconUnicode: { [key in Icon.Name]: string } = {
+const iconUnicode: { [key in IconName]: string } = {
   search: "&#xe601;",
   more: "&#xe602;",
   move: "&#xe603;",
@@ -17,7 +17,7 @@ const iconUnicode: { [key in Icon.Name]: string } = {
   arrow: "&#xe60f;",
 };
 
-export const getIconUnicodeByName = (name: Icon.Name) => {
+export const getIconUnicodeByName = (name: IconName) => {
   if (!iconUnicode[name]) {
     throw new Error("😈 请输入正确的图标名哦亲");
   }

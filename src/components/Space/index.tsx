@@ -29,9 +29,8 @@ export default Space;
 
 const Container = styled.div<Props>`
   display: inline-flex;
-  flex-direction: ${(props) => props.direction};
-  justify-content: ${(props) => (props.justify ? props.justify : "normal")};
-  align-items: ${(props) => (props.align ? props.align : "normal")};
-  gap: ${(props) =>
-    `${typeof props.gap === "string" ? spaceGap[props.gap] : props.gap}px`};
+  flex-direction: ${({ direction }) => direction};
+  justify-content: ${({ justify }) => (justify ? justify : "normal")};
+  align-items: ${({ align }) => (align ? align : "normal")};
+  gap: ${({ gap }) => `${typeof gap === "string" ? spaceGap[gap] : gap}px`};
 `;

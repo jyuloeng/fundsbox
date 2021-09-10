@@ -14,9 +14,9 @@ import {
   darkBackgroundColor,
   darkBackground2Color,
   darkCardShadowColor,
-} from "styles/colors";
+} from "@styles/colors";
 
-export const themes: Theme.Themes = {
+export const themes: SystemThemes = {
   light: {
     colors: {
       text: lightTextColor,
