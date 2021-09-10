@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import Space from "../Space";
+import Space from "components/Space";
 
-import { CaptionText, IntroText, MediumText } from "../../styles/typography";
-import { dangerColor, successColor } from "../../styles/colors";
-import { transitionStyles } from "../../styles/common";
+import { CaptionText, IntroText, MediumText } from "styles/typography";
+import { dangerColor, successColor } from "styles/colors";
+import { transitionStyles } from "styles/common";
 
-import { formatAmount } from "../../utils/format";
+import { formatAmount } from "utils/format";
 
 type Props = {
   riseTotal: number;

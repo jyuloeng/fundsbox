@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import Space from "../../components/Space";
-import Icon from "../../components/Icon";
+import Space from "components/Space";
+import Icon from "components/Icon";
 
-import { MediumText } from "../../styles/typography";
-import { containerStyles } from "../../styles/common";
+import { MediumText } from "styles/typography";
+import { containerStyles } from "styles/common";
 
 const Footer: React.FC = () => {
   return (

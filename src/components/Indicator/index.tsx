@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
 
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme } from "context/ThemeContext";
 
 import {
   dangerColor,
   darkBackground2Color,
   lightBackground2Color,
-} from "../../styles/colors";
-import { transitionStyles } from "../../styles/common";
+} from "styles/colors";
+import { transitionStyles } from "styles/common";
 
 type Props = {
   activeIndex: number;

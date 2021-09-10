@@ -1,18 +1,18 @@
 import React from "react";
 import styled from "@emotion/styled/macro";
-import Space from "../Space";
-import Icon from "../Icon";
+import Space from "components/Space";
+import Icon from "components/Icon";
 
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme } from "context/ThemeContext";
 
 import {
   CaptionText,
   InfoText,
   IntroText,
   SmallText,
-} from "../../styles/typography";
-import { transitionStyles } from "../../styles/common";
-import { dangerColor, darkTextColor, successColor } from "../../styles/colors";
+} from "styles/typography";
+import { transitionStyles } from "styles/common";
+import { dangerColor, darkTextColor, successColor } from "styles/colors";
 
 type Props = {
   type?: "rise" | "fell";
