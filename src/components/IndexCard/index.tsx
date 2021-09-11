@@ -23,6 +23,7 @@ type Props = {
   indexChange: number;
   percentChange: number;
   lastUpdatedTime: number;
+  onClick?: (code: string) => void;
 };
 
 const IndexCard: React.FC<Props> = ({
@@ -34,11 +35,21 @@ const IndexCard: React.FC<Props> = ({
   indexChange,
   percentChange,
   lastUpdatedTime,
+  onClick,
 }) => {
   const { themeType } = useTheme();
 
+  const handleClick = () => {
+    onClick && onClick(code);
+  };
+
   return (
-    <Container direction="column" gap={24} themeType={themeType}>
+    <Container
+      direction="column"
+      gap={24}
+      themeType={themeType}
+      onClick={handleClick}
+    >
       <Header align="center" gap="large">
         <Logo>{logo}</Logo>
 

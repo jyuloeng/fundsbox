@@ -4,7 +4,7 @@ import Space from "@components/Space";
 import IndexCard from "@components/IndexCard";
 import BoardCard from "@components/BoardCard";
 import TradingTotal from "@components/TradingTotal";
-import Indicator from "@components/Indicator";
+import IndexScroller from "@/components/IndexScroller";
 
 import { useTheme } from "@context/ThemeContext";
 
@@ -37,6 +37,53 @@ const indexList: GetComponentProps<typeof IndexCard>[] = [
     currentIndex: 3342.38,
     indexChange: 48.61,
     percentChange: 1.48,
+    lastUpdatedTime: Date.now(),
+  },
+  {
+    logo: "😂",
+    title: "沪深300",
+    code: "sh1b0300",
+    currentIndex: 5013.52,
+    indexChange: 43.51,
+    percentChange: 0.88,
+    lastUpdatedTime: Date.now(),
+  },
+  {
+    logo: "🐎",
+    title: "上证50",
+    code: "sh1b0016",
+    currentIndex: 3252.52,
+    indexChange: 48.05,
+    percentChange: 1.5,
+    lastUpdatedTime: Date.now(),
+  },
+  {
+    type: "fell",
+    logo: "🀄️",
+    title: "中证500",
+    code: "sh1b0905",
+    currentIndex: 7607.67,
+    indexChange: -9.78,
+    percentChange: 0.13,
+    lastUpdatedTime: Date.now(),
+  },
+  {
+    logo: "🐎",
+    title: "上证5000",
+    code: "sh1b001",
+    currentIndex: 3252.52,
+    indexChange: 48.05,
+    percentChange: 1.5,
+    lastUpdatedTime: Date.now(),
+  },
+  {
+    type: "fell",
+    logo: "🀄️",
+    title: "中证5000",
+    code: "sh1b090",
+    currentIndex: 7607.67,
+    indexChange: -9.78,
+    percentChange: 0.13,
     lastUpdatedTime: Date.now(),
   },
 ];
@@ -135,12 +182,6 @@ function App() {
     }
   };
 
-  const [indicatorIndex, setIndicatorIndex] = useState(0);
-
-  const handleIndicatorClick = (index: number) => {
-    setIndicatorIndex(index);
-  };
-
   return (
     <Container>
       <Space gap={24}>
@@ -155,17 +196,11 @@ function App() {
         fellTotal={1903}
       />
 
-      <Space gap={24}>
-        {list.map((prop) => (
-          <IndexCard key={prop.code} {...prop} />
+      <IndexScroller total={Math.ceil(list.length / 3)}>
+        {list.map((item) => (
+          <IndexScroller.Card key={item.code} {...item} />
         ))}
-      </Space>
-
-      <Indicator
-        activeIndex={indicatorIndex}
-        total={3}
-        onDotClick={handleIndicatorClick}
-      />
+      </IndexScroller>
 
       <Space gap={24}>
         {boradList.map((prop) => (
