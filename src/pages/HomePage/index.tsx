@@ -5,8 +5,9 @@ import IndexCard from "@components/IndexCard";
 import BoardCard from "@components/BoardCard";
 import TradingTotal from "@components/TradingTotal";
 import IndexScroller from "@/components/IndexScroller";
+import Introduction from "./components/Introduction";
 
-import { useTheme } from "@context/ThemeContext";
+import { CaptionText, MediumText } from "@/styles/typography";
 
 import { GetComponentProps } from "@utils/index";
 
@@ -143,8 +144,6 @@ const getRandomNumber = () => {
 };
 
 function App() {
-  const { themeType, setThemeType } = useTheme();
-
   const [list, setList] = useState(indexList);
 
   useEffect(() => {
@@ -174,27 +173,29 @@ function App() {
     };
   }, [list]);
 
-  const handleToggleTheme = () => {
-    if (themeType === "light") {
-      setThemeType("dark");
-    } else {
-      setThemeType("light");
-    }
-  };
-
   return (
     <Container>
-      <Space gap={24}>
+      <Title>
+        一个方便 <Leek>韭菜</Leek> 🐔民在 WEB 观看基金走势的高颜值网站
+      </Title>
+
+      <Introduction />
+
+      {/* <Space gap={24}>
         <Button onClick={handleToggleTheme}>切换主题</Button>
         当前主题:{themeType}
-      </Space>
+      </Space> */}
 
-      <TradingTotal
-        amountTotal="1408319000000"
-        riseTotal={2432}
-        unchangeTotal={203}
-        fellTotal={1903}
-      />
+      <SearchContainer>Search</SearchContainer>
+
+      <TradingTotalContainer>
+        <TradingTotal
+          amountTotal="1408319000000"
+          riseTotal={2432}
+          unchangeTotal={203}
+          fellTotal={1903}
+        />
+      </TradingTotalContainer>
 
       <IndexScroller total={Math.ceil(list.length / 3)}>
         {list.map((item) => (
@@ -202,30 +203,88 @@ function App() {
         ))}
       </IndexScroller>
 
-      <Space gap={24}>
-        {boradList.map((prop) => (
-          <BoardCard key={prop.title} {...prop} />
-        ))}
-      </Space>
+      <RiseBoardsContainer>
+        <BoardsTitle bold>主力进场板块 😍</BoardsTitle>
+        <Space gap={24}>
+          {boradList.map((prop) => (
+            <BoardCard key={prop.title} {...prop} />
+          ))}
+        </Space>
+      </RiseBoardsContainer>
 
-      <Space gap={24}>
-        {boradList2.map((prop) => (
-          <BoardCard key={prop.title} {...prop} />
-        ))}
-      </Space>
+      <FellBoardsContainer>
+        <BoardsTitle bold>主力跑路板块 😭</BoardsTitle>
+        <Space gap={24}>
+          {boradList2.map((prop) => (
+            <BoardCard key={prop.title} {...prop} />
+          ))}
+        </Space>
+        <ShowInfo>
+          <MediumText>查看详情</MediumText>
+        </ShowInfo>
+      </FellBoardsContainer>
     </Container>
   );
 }
 
 export default App;
 
-const Button = styled.button``;
-
-const Container = styled.div`
+const ShowInfo = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: 24px;
+  & span {
+    cursor: pointer;
+  }
+`;
+
+const Content = styled.div`
+  width: 1048px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+const BoardsTitle = styled(CaptionText)`
+  margin-left: 16px;
+  margin-bottom: 20px;
+`;
+
+const RiseBoardsContainer = styled(Content)`
+  margin-top: 40px;
+  margin-bottom: 52px;
+`;
+
+const FellBoardsContainer = styled(Content)`
+  padding-bottom: 16px;
+`;
+
+const TradingTotalContainer = styled(Content)`
+  margin-bottom: 16px;
+  padding: 0 64px;
+`;
+
+const SearchContainer = styled.div`
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 48px;
+  margin: 60px 0 100px;
+`;
+
+const Leek = styled.span`
+  color: ${({ theme }) => theme.colors.success};
+  text-decoration: line-through;
+`;
+
+const Title = styled.p`
+  width: 668px;
+  margin: 92px auto 52px;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 48px;
+  color: ${({ theme }) => theme.colors.text};
+  text-align: center;
+`;
+
+const Container = styled.div`
   min-height: 100vh;
 `;

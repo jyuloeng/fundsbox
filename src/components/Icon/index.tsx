@@ -23,6 +23,7 @@ const Container = styled.i<Partial<Props>>`
   font-size: ${({ size }) => (size ? `${size}px` : "inherit")};
   font-style: normal;
   line-height: ${({ size }) => (size ? `${size}px` : "inherit")};
+  user-select: none;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
